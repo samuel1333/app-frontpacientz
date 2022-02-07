@@ -1,10 +1,48 @@
 {
   "projects": [
     {
-      "name": "teste",
+      "name": "samuel",
+      "budget": "2000",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
       "cost": 0,
       "services": [],
       "id": 1
+    },
+    {
+      "name": "teste",
+      "budget": "20000",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 2
+    },
+    {
+      "name": "bruh",
+      "budget": "10000",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [],
+      "id": 3
+    },
+    {
+      "category": {
+        "id": "1",
+        "name": "infra"
+      },
+      "name": "mamaco",
+      "budget": "100000",
+      "cost": 0,
+      "services": [],
+      "id": 4
     }
   ],
   "categories": [
