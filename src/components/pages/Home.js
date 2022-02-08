@@ -1,5 +1,5 @@
 import styles from './Home.module.css'
-import savings from '../../img/bruhv.jpg'
+import savings from '../../img/loading.svg'
 import LinkButton from '../layout/LinkButton'
 
 function Home() {
