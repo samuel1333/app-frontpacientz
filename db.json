@@ -1,35 +1,5 @@
 {
-  "projects": [
-    {
-      "name": "samuel",
-      "budget": "100000",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "name": "samuel",
-      "budget": "134123",
-      "category": {
-        "id": "1",
-        "name": "infra"
-      },
-      "cost": 12,
-      "services": [
-        {
-          "name": "asdas",
-          "cost": "12",
-          "description": "asdaf",
-          "id": "ebd8ad4f-e7cf-42a5-a67f-e6f70481a158"
-        }
-      ],
-      "id": 2
-    }
-  ],
+  "projects": [],
   "categories": [
     {
       "id": 1,

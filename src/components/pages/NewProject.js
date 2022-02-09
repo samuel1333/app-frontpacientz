@@ -23,7 +23,7 @@ function NewProject() {
       .then((data) => {
         console.log(data)
         //redirect
-        navigate('projects', { message: 'projeto criado com sucesso!' })
+        navigate('/projects', { message: 'projeto criado com sucesso!' })
       })
       .catch((err) => console.log(err))
   }
@@ -31,7 +31,7 @@ function NewProject() {
   return (
     <div className={styles.newproject_container}>
       <h1>Criar Projeto</h1>
-      <p>Crie seu projeto para depois adicionaros serviços</p>
+      <p>Crie seu projeto para depois adicionarmos serviços</p>
       <ProjectForm handleSubmit={createPost} btnText="Criar Projeto" />
     </div>
   )

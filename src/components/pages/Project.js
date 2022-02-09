@@ -1,4 +1,4 @@
-import { v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 import styles from './Project.module.css'
 
@@ -42,12 +42,12 @@ function Project() {
   function editPost(project) {
     setMessage('')
     //budge validation
-    if(project.budget < project.cost){
+    if (project.budget < project.cost) {
       setMessage('O orcçamento não pode ser menor que o custo do projeto!')
       setType('error')
       return false
     }
-    
+
     fetch(`http://localhost:5000/projects/${project.id}`, {
       method: 'PATCH',
       headers: {
@@ -55,14 +55,14 @@ function Project() {
       },
       body: JSON.stringify(project),
     })
-    .then(resp => resp.json())
-    .then((data) => {
-      setProject(data)
-      setShowProjectForm(false)
-      setMessage('Projeto atualizado!')
-      setType('success')
-    })
-    .catch(err => console.log(err))
+      .then(resp => resp.json())
+      .then((data) => {
+        setProject(data)
+        setShowProjectForm(false)
+        setMessage('Projeto atualizado!')
+        setType('success')
+      })
+      .catch(err => console.log(err))
   }
 
   function createService(project) {
@@ -76,7 +76,7 @@ function Project() {
     const lastServiceCost = lastService.cost
 
     const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
-  
+
     if (newCost > parseFloat(project.budget)) {
       setMessage('Orçamento ultrapassado, verifique o valor do serviço')
       setType('error')
@@ -88,7 +88,7 @@ function Project() {
     project.cost = newCost
 
     // update project
-    fetch(`http://localhost:5000/projects/${project.id}`,{
+    fetch(`http://localhost:5000/projects/${project.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -109,11 +109,11 @@ function Project() {
     )
 
     const projectUpdated = project
-      
+
     projectUpdated.services = servicesUpdated
     projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
-  
-    fetch(`http://localhost:5000/projects/${projectUpdated.id}`,{
+
+    fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -129,26 +129,26 @@ function Project() {
       .catch(err => console.log(err))
   }
 
-  function toggleProjectForm () {
+  function toggleProjectForm() {
     setShowProjectForm(!showProjectForm)
   }
 
-  function toggleServiceForm () {
+  function toggleServiceForm() {
     setShowServiceForm(!showServiceForm)
   }
 
   return (
     <>
-      {project.name ? ( 
+      {project.name ? (
         <div className={styles.project_details}>
           <Container customClass="column">
-            {message && <Message type={type} msg={message}/>}
+            {message && <Message type={type} msg={message} />}
             <div className={styles.details_container}>
               <h1>Projeto: {project.name}</h1>
               <button className={styles.btn} onClick={toggleProjectForm}>
                 {!showProjectForm ? 'Editar projeto' : 'Fechar'}
               </button>
-              {!showProjectForm ?(
+              {!showProjectForm ? (
                 <div className={styles.project_info}>
                   <p>
                     <span>Categoria:</span> {project.category.name}
@@ -162,38 +162,38 @@ function Project() {
                 </div>
               ) : (
                 <div className={styles.project_info}>
-                  <ProjectForm 
-                    handleSubmit={editPost} 
-                    btnText="Concluir edição" 
+                  <ProjectForm
+                    handleSubmit={editPost}
+                    btnText="Concluir edição"
                     projectData={project}
                   />
                 </div>
               )}
             </div>
             <div className={styles.service_form_container}>
-                <h2>Adicione um serviço:</h2>
-                <button className={styles.btn} onClick={toggleServiceForm}>
+              <h2>Adicione um serviço:</h2>
+              <button className={styles.btn} onClick={toggleServiceForm}>
                 {!showServiceForm ? 'Adicionar serviço' : 'Fechar'}
-                </button>
-                <div className={styles.project_info}>
-                  {showServiceForm && <ServiceForm 
-                    handleSubmit={createService}
-                    btnText="Adicionar Serviço"
-                    projectData={project}
-                  />}
-                </div>
+              </button>
+              <div className={styles.project_info}>
+                {showServiceForm && <ServiceForm
+                  handleSubmit={createService}
+                  btnText="Adicionar Serviço"
+                  projectData={project}
+                />}
+              </div>
             </div>
             <h2>Serviços</h2>
             <Container customClass="start">
               {services.length > 0 &&
                 services.map((service) => (
-                  <ServiceCard 
-                  id = {service.id}
-                  name = {service.name}
-                  cost = {service.cost}
-                  description = {service.description}
-                  key = {service.id}
-                  handleRemove = {removeService}
+                  <ServiceCard
+                    id={service.id}
+                    name={service.name}
+                    cost={service.cost}
+                    description={service.description}
+                    key={service.id}
+                    handleRemove={removeService}
                   />
                 ))
               }
