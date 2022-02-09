@@ -1,11 +1,11 @@
 {
   "projects": [
     {
-      "name": "bruh",
+      "name": "samuel",
       "budget": "100000",
       "category": {
-        "id": "1",
-        "name": "infra"
+        "id": "3",
+        "name": "Design"
       },
       "cost": 0,
       "services": [],
@@ -13,13 +13,20 @@
     },
     {
       "name": "samuel",
-      "budget": "201010",
+      "budget": "134123",
       "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
+        "id": "1",
+        "name": "infra"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 12,
+      "services": [
+        {
+          "name": "asdas",
+          "cost": "12",
+          "description": "asdaf",
+          "id": "ebd8ad4f-e7cf-42a5-a67f-e6f70481a158"
+        }
+      ],
       "id": 2
     }
   ],
